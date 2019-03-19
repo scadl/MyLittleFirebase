@@ -1,0 +1,2 @@
+# My Little Firebase
+This app is Firebase SQL client written to work with Employee.fdb database, shipped with firebase as exmaple. Using my code you can learn how to work with firebase db (and data in it) using lazarus or delphi. 'Empbuild' folder contains the FDB used for testing this app. The SQL file contains exmaple of calling db procedure.
