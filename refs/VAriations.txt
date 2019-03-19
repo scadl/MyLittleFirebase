@@ -1,0 +1,5 @@
+SELECT department.department, employee.FIRST_NAME FROM employee CROSS JOIN department;
+SELECT department.department, employee.FIRST_NAME FROM employee JOIN department ON employee.dept_no=department.dept_no;
+SELECT department.department, employee.FIRST_NAME FROM employee, department WHERE employee.dept_no=department.dept_no;
+
+SELECT employee.FIRST_NAME, employee.last_name, employee.phone_ext, employee.hire_date, department.department, job.job_title, employee.job_grade, employee.job_country, employee.salary FROM employee, department, job WHERE employee.dept_no=department.dept_no AND employee.job_code=job.job_code AND employee.job_grade=job.job_grade AND employee.job_country=job.job_country ORDER BY employee.emp_no;

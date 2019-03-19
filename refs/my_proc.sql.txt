@@ -1,0 +1,21 @@
+create or alter procedure GET_CLIENT_JOB (
+    CLID varchar(10),
+    CLIC varchar(15),
+    CLGD integer)
+returns (
+    WRK varchar(150),
+    REQ varchar(500),
+    WCT varchar(10),
+    ESAL integer)
+as
+begin
+  for select JOB.JOB_TITLE, substring(job.job_requirement from 1 for 500), job.job_country, employee.salary
+      from JOB, EMPLOYEE
+      where EMPLOYEE.JOB_CODE = JOB.JOB_CODE and
+            EMPLOYEE.EMP_NO = :CLID and
+            JOB.JOB_COUNTRY = :CLIC and
+            JOB.JOB_GRADE = :CLGD
+      into :WRK, :req, :WCT, :ESAL
+  do
+    suspend;
+end
